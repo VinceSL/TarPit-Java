@@ -4,4 +4,3 @@ build_rules:
         - id: No New Defects
           finding_types:
             - vuln
-          threshold: 90
