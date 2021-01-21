@@ -10,11 +10,13 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: mvn -B -DskipTests clean package
-          curl -O https://cdn.shiftleft.io/download/sl
-          chmod a+x sl
-          ./sl analyze --java --app TP-Java-Circle --wait --cpg target/tarpit-java.war
-      - environment:
+          command: |
+              mvn -B -DskipTests clean package
+              curl -O https://cdn.shiftleft.io/download/sl
+              chmod a+x sl
+              ./sl analyze --java --app TP-Java-Circle --wait --cpg target/tarpit-java.war
+
+          environment:
           SHIFTLEFT_ACCESS_TOKEN: eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Nzg5NTE5NDQsImlzcyI6IlNoaWZ0TGVmdCIsIm9yZ0lEIjoiMjUxZDk2ZTYtZDBiMy00NGJiLTliYjQtYzU0MDNhYWQ2OTk4IiwidXNlcklEIjoiZmJlNWYxZDQtODY1OS00ZmVlLTg4MzMtNjJlMGRiOGVjYjE3Iiwic2NvcGVzIjpbInNlYXRzOndyaXRlIiwiZXh0ZW5kZWQiLCJhcGk6djIiLCJ1cGxvYWRzOndyaXRlIiwibG9nOndyaXRlIiwicGlwZWxpbmVzdGF0dXM6cmVhZCIsIm1ldHJpY3M6d3JpdGUiLCJwb2xpY2llczpjdXN0b21lciIsInBvbGljaWVzOnJlYWQiXX0.z24ArAlfJy-5e7WEO7i_kEPotLeQEBVuUMY7qSLNSnaXWjzO8qpFqDcgqDuAy9jUP7knCxSEXKrRTmrIcQ2EKTwAGLJLz2rV3OHnhPgehU8FZppyy6Jiu42M4Qm2p7DBkvv_gKKaTj_HBgRkbomdkqY04AmZIEmy45v02F2WWG4ej1m_ttV5FN45tg2yTJziRBOFGklOigy_X_DNNx_pXhgO9gxC8jXi0ybEKc_QEmckBggnvRDhrO54GSikewhO7CYzvlqPNWXps32VvAhcIF6-P3sX7vbVHql4UmAXMWdGfNwdNlIlQU-KXOzuSrZzIgNXTmiOr2bSDdhuEW1pjg
   
 workflows:
