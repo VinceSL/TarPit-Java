@@ -1,0 +1,6 @@
+source:
+        scan: 1
+build_rules:
+        - id: No New Defects
+          finding_types:
+            - vuln

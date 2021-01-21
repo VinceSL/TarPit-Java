@@ -15,7 +15,9 @@ jobs:
               mvn -B -DskipTests clean package
               curl -O https://cdn.shiftleft.io/download/sl
               chmod a+x sl
-              ./sl analyze --java --app TP-Java-Circle --wait --cpg target/tarpit-java.war
+              ./sl analyze --java --app TP-Java-Circle --wait --cpg --tag branch=${CIRCLE_BRANCH} target/tarpit-java.war
+              ./sl check-analysis --app TP-Java-Circle --report
+              ./sl check-analysis --app TP-Java-Circle --target tag.branch=${CIRCLE_BRANCH}
   
 workflows:
   sample: 
