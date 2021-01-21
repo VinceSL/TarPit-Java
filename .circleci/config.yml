@@ -19,7 +19,7 @@ jobs:
           name: Build
           command: mvn -B -DskipTests clean package
       - store_artifacts:
-          path: $CIRCLE_WORKING_DIRECTORY/target/tarpit-java.war
+          path: target/tarpit-java.war
           destination: tarpit-java.war
 
 
