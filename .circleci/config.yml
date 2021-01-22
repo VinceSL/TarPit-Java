@@ -20,10 +20,10 @@ jobs:
               ./sl analyze --java --app TP-Java-Circle --wait --cpg --tag branch=${CIRCLE_BRANCH} target/tarpit-java.war
               ./sl check-analysis --app TP-Java-Circle --report --branch ${CIRCLE_BRANCH}
               ./sl check-analysis --app TP-Java-Circle --target tag.branch=${CIRCLE_BRANCH}
-  
-      - store_artifacts:
-        path: target/tarpit-java.war
 
+      - store_artifacts:
+          path: target/tarpit-java.war
 workflows:
+  build:
     jobs:
       - build
