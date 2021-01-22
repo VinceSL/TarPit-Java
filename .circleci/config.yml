@@ -19,6 +19,9 @@ jobs:
               ./sl check-analysis --app TP-Java-Circle --report --branch ${CIRCLE_BRANCH}
               ./sl check-analysis --app TP-Java-Circle --target tag.branch=${CIRCLE_BRANCH}
   
+      - store_artifacts:
+        path: target/tarpit-java.war
+
 workflows:
   sample: 
     jobs:
