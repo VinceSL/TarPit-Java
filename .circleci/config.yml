@@ -23,6 +23,8 @@ jobs:
 
       - store_artifacts:
           path: target/tarpit-java.war
+          destination: tarpit
+          
 workflows:
   build:
     jobs:
