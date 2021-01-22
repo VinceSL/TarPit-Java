@@ -8,6 +8,8 @@ jobs:
       - image: cimg/openjdk:8.0
     steps:
       - checkout
+      - store_artifacts:
+          path: target/tarpit-java.war
       - run:
           name: Build
           command: |
@@ -19,7 +21,7 @@ jobs:
               ./sl check-analysis --app TP-Java-Circle --report --branch ${CIRCLE_BRANCH}
               ./sl check-analysis --app TP-Java-Circle --target tag.branch=${CIRCLE_BRANCH}
   
-workflows:
+ workflows:
   sample: 
     jobs:
       - build
